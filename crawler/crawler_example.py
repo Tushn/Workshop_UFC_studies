@@ -31,4 +31,3 @@ for link in links:
     file.write(pag);
     file.close();
     i+=1;
-    
