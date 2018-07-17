@@ -36,14 +36,14 @@ text = text_full.split('\n');
 
 for row in text:
 	if(row[:3]=='ham'):
-    		classe = 'ham';
-    		content = row[4:]
-    		y.append(0);
+		classe = 'ham';
+		content = row[4:]
+		y.append(0);
 	else:
-    		classe = 'spam';
-    		content = row[5:]
-	y.append(1);
-data.append([classe, content])
+		classe = 'spam';
+		content = row[5:]
+		y.append(1);
+	data.append([classe, content])
 file.close();
 
 # Mais loads
@@ -78,14 +78,12 @@ for row in data:
 	row = nltk.word_tokenize(row[1]);
     
 	for word in row:
-    	word = porter.stem(word);
-    	if(word in attributes):
-        	indice = attributes.index(word);
-        	bow[i][indice] += 1;       	 
+		word = porter.stem(word);
+		if(word in attributes):
+        		indice = attributes.index(word);
+        		bow[i][indice] += 1;       	 
 	i+=1;
-
 X = bow;
-
 
 # MNB - treinamento
 from sklearn.naive_bayes import MultinomialNB
